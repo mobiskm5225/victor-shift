@@ -1,6 +1,8 @@
-import { Handle, Position } from 'reactflow'
+// frontend/src/nodes/BaseNode.js
 
-export const BaseNode = ({ id, title, color = '#1C2536', inputs = [], outputs = [], children }) => {
+import { Handle, Position } from 'reactflow';
+
+export const BaseNode = ({ id, title, color = '#1C2536', inputs = [], outputs = [], children, style = {} }) => {
     return (
         <div style={{
             minWidth: 200,
@@ -10,7 +12,9 @@ export const BaseNode = ({ id, title, color = '#1C2536', inputs = [], outputs = 
             backgroundColor: '#1e293b',
             boxShadow: '0 4px 6px rgba(0,0,0,0.3)',
             fontFamily: 'sans-serif',
+            ...style
         }}>
+
             {/* Header */}
             <div style={{
                 backgroundColor: color,
@@ -24,20 +28,19 @@ export const BaseNode = ({ id, title, color = '#1C2536', inputs = [], outputs = 
             </div>
 
             {/* Body */}
-            <div
-                style={{
-                    padding: '10px 12px',
-                    fontSize: '12px',
-                    color: '#cbd5e1',
-                }}
-            >
+            <div style={{
+                padding: '10px 12px',
+                fontSize: '12px',
+                color: '#cbd5e1',
+            }}>
                 {children}
             </div>
+
             {/* Input Handles - Left Side */}
             {inputs.map((input, index) => (
                 <Handle
                     key={input.id}
-                    type='target'
+                    type="target"
                     position={Position.Left}
                     id={`${id}-${input.id}`}
                     style={{
@@ -54,7 +57,8 @@ export const BaseNode = ({ id, title, color = '#1C2536', inputs = [], outputs = 
 
             {/* Output Handles - Right Side */}
             {outputs.map((output, index) => (
-                <Handle key={output.id}
+                <Handle
+                    key={output.id}
                     type="source"
                     position={Position.Right}
                     id={`${id}-${output.id}`}
@@ -66,8 +70,10 @@ export const BaseNode = ({ id, title, color = '#1C2536', inputs = [], outputs = 
                         width: '10px',
                         height: '10px',
                         border: '2px solid #1e293b',
-                    }} />
+                    }}
+                />
             ))}
-        </div >
-    )
-}
+
+        </div>
+    );
+};

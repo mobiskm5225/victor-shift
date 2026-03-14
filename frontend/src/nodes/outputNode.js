@@ -1,7 +1,6 @@
 // outputNode.js
 
 import { useState } from 'react';
-import { Handle, Position } from 'reactflow';
 import { BaseNode } from './BaseNode';
 
 export const OutputNode = ({ id, data }) => {
@@ -28,7 +27,7 @@ export const OutputNode = ({ id, data }) => {
       <label style={{ display: 'flex', flexDirection: 'column', gap: '4px', marginBottom: '8px' }}>
         <span style={{ color: '#94a3b8', fontSize: '11px' }}>Type</span>
         <select value={outputType} onChange={(e) => setOutputType(e.target.value)} style={inputStyle}>
-          <option value="text">Text</option>
+          <option value="Text">Text</option>
           <option value="Image">Image</option>
         </select>
       </label>
@@ -45,4 +44,5 @@ const inputStyle = {
   fontSize: '12px',
   outline: 'none',
   width: '100%',
+  boxSizing: 'border-box',  // ← yeh add karo
 };

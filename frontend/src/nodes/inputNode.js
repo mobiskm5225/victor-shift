@@ -1,7 +1,6 @@
 // inputNode.js
 
 import { useState } from 'react';
-import { Handle, Position } from 'reactflow';
 import { BaseNode } from './BaseNode';
 
 export const InputNode = ({ id, data }) => {
@@ -37,4 +36,5 @@ const inputStyle = {
   fontSize: '12px',
   outline: 'none',
   width: '100%',
+  boxSizing: 'border-box',  // ← yeh add karo
 };
