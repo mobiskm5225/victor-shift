@@ -14,6 +14,9 @@ import { TextNode } from './nodes/textNode';
 import 'reactflow/dist/style.css';
 import { NoteNode } from './nodes/noteNode';
 import { APINode } from './nodes/apiNode';
+import { ConditionNode } from './nodes/conditionNode';
+import { TransformNode } from './nodes/transformNode';
+import { TimerNode } from './nodes/timerNode';
 
 const gridSize = 20;
 const proOptions = { hideAttribution: true };
@@ -23,7 +26,10 @@ const nodeTypes = {
   customOutput: OutputNode,
   text: TextNode,
   note: NoteNode,
-  api: APINode
+  api: APINode,
+  condition: ConditionNode,
+  transform: TransformNode,
+  timer: TimerNode
 };
 
 const selector = (state) => ({
